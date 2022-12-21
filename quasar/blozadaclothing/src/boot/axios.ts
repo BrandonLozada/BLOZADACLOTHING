@@ -13,7 +13,18 @@ declare module '@vue/runtime-core' {
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: 'https://api.example.com' });
+
+let baseURL = '';          // Django Rest Framework con sus apps
+let apiAuthURL = '';       // Servicio de Autenticación, puede ser un proyecto aparte para su gestión
+let apiCatalogsURL = '';   // Catalogos, pueden ser de estados, colonias, etc.
+
+baseURL = 'http://127.0.0.1:8000/api/v1'
+apiAuthURL = 'https://auth.sitio.com.mx/api/v1'
+apiCatalogsURL = 'https://api.sitio.com.mx/rest/v1'
+
+const apiController = new AbortController();
+const api = axios.create({ baseURL: baseURL });
+const apiCat = axios.create({baseURL : apiCatalogsURL });
 
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
@@ -27,4 +38,4 @@ export default boot(({ app }) => {
   //       so you can easily perform requests against your app's API
 });
 
-export { api };
+export { api, apiCat, axios, apiController };
