@@ -5,8 +5,9 @@
         404
       </div>
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
+      <div class="text-h2" style="opacity:.5">
+        <div>¡Ukela!</div>
+        No hay nada aquí...
       </div>
 
       <q-btn
@@ -15,7 +16,7 @@
         text-color="blue"
         unelevated
         to="/"
-        label="Go Home"
+        label="Ir a Inicio"
         no-caps
       />
     </div>
