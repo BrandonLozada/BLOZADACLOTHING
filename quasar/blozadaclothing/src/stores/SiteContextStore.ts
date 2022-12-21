@@ -1,6 +1,6 @@
-import {defineStore} from 'pinia';
+import { defineStore } from 'pinia'
 
-export const useContextStore = defineStore('SiteeContextStore', {
+export const useContextStore = defineStore('SiteContextStore', {
   state: () => ({
     selected_product: toString(),
     current_page: toString(),
