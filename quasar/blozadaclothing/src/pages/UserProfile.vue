@@ -9,8 +9,8 @@
             <div class="col-xs-12">
               <div class="q-py-sm">
 
-<!--                      @submit.prevent="submitForm"-->
                     <q-form
+                      @submit.prevent="submitForm"
                       ref="formularioPerfil"
                       greedy
                       class="q-gutter-lg">
@@ -19,14 +19,16 @@
 
                           <EntryBlock
                             v-model="formData.first_name"
-                            label="Nombre(s)"
+                            label="Nombres"
                             field_type="text"
+                            required
                           />
 
                           <EntryBlock
                             v-model="formData.first_surname"
                             label="Primer apellido"
                             field_type="text"
+                            required
                           />
 
                           <EntryBlock
@@ -45,10 +47,11 @@
                             v-model="formData.phone_number"
                             label="Número de celular"
                             field_type="tel"
+                            required
                           />
 
                           <div class="flex justify-end">
-                            <q-btn no-caps type="submit" color="primary" label="Guardar" class="bg-accent"/>
+                            <q-btn no-caps type="submit" color="primary" label="Guardar"/>
                           </div>
                         </q-card-section>
 
@@ -62,10 +65,24 @@
 
 <script setup lang="ts">
 import {ref} from 'vue';
-// import UserForm from 'components/forms/UserForm2.vue';
-// import EntryBlock from 'components/Inputs/EntryBlock.vue';
+import {useQuasar, event, date} from 'quasar'
+import {useRouter, useRoute} from 'vue-router'
+// import {api, axios} from 'boot/axios'
+import EntryBlock from 'components/Inputs/EntryBlock.vue';
 
-import EntryBlock, { EntryBlockProps } from 'components/Inputs/EntryBlock.vue';
+// import {useAuthStore} from 'stores/auth'
+import {useContextStore} from 'stores/SiteContextStore'
+
+// const authStore = useAuthStore()
+
+const $q = useQuasar()
+
+const siteContext = useContextStore()
+const router = useRouter()
+const route = useRoute()
+siteContext.current_page = route.path
+
+const {stopAndPrevent} = event
 
 const formData = ref({
   first_name: '',
@@ -75,67 +92,14 @@ const formData = ref({
   phone_number: '',
 })
 
-// const userForm: EntryBlockProps[] = [
-//   {
-//     label: 'Nombre(s)',
-//     modelValue: formData.value.first_name,
-//     field_type: 'text',
-//     help_text: '',
-//     clean_name: ''
-//   },
-//     {
-//     label: 'Apellidos',
-//     modelValue: formData.value.first_surname,
-//     field_type: 'text',
-//     help_text: '',
-//     clean_name: ''
-//   },
-//     {
-//     label: 'Fecha de Nacimiento',
-//     modelValue: formData.value.birthdate,
-//     field_type: 'date',
-//     help_text: '',
-//     clean_name: ''
-//   },
-//     {
-//     label: 'Número de celular',
-//     modelValue: formData.value.phone_number,
-//     field_type: 'text',
-//     help_text: '',
-//     clean_name: ''
-//   },
-// ];
+const submitResult = ref([])
+const responseStatus = ref(false)
+const responseMessage = ref('Error: ')
 
-// import {useQuasar, event, date} from 'quasar'
-// import {useRouter, useRoute} from 'vue-router'
-//
-// // import {api, axios} from 'boot/axios'
-//
-// // import {useAuthStore} from 'stores/auth'
-// // import {useContextStore} from 'stores/SiteContextStore'
-//
-// // const authStore = useAuthStore()
-//
-// const {stopAndPrevent} = event
-//
-// const $q = useQuasar()
-//
-// // const siteContext = useContextStore()
-// // const router = useRouter()
-// // const route = useRoute()
-// // siteContext.current_page = route.path
-//
-// const submitResult = ref([])
-// const responseStatus = ref(false)
-// const responseMessage = ref('Error: ')
-//
 // const emailPattern = /^(?=[a-zA-Z0-9@.%+-]{6,254}$)[a-zA-Z0-9.%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,8}[a-zA-Z]{2,63}$/
 // const datePattern = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/
 // let fecha_convertida = ref('');
-//
 
-
-//
 // const isValidEmail = (val: string) => {
 //   if (!!val) {
 //     return emailPattern.test(val) || 'La dirección email no tiene formato correcto';
@@ -173,7 +137,7 @@ const formData = ref({
 //     return 'El campo es requerido'
 //   }
 // }
-//
+
 // let convertDate = (val: string) => {
 //   const day = parseInt(val.split('/')[0]);
 //   const month = parseInt(val.split('/')[1]);
@@ -181,7 +145,7 @@ const formData = ref({
 //
 //   return date.formatDate(date.buildDate({ year, month, day}), 'YYYY/MM/DD');
 // }
-//
+
 // const myLocale = {
 //   /* starting with Sunday */
 //   days: 'Domingo_Lunes_Martes_Miércoles_Jueves_Viernes_Sábado'.split('_'),
@@ -192,53 +156,90 @@ const formData = ref({
 //   format24h: true,
 //   pluralDay: 'dias'
 // }
-//
-// const showNotification = (
-//   message: string,
-//   color: string,
-//   actions: {
-//     label: string;
-//     color: string;
-//     handler: () => void }[] | undefined) => {
-//   $q.notify({
-//         message: message,
-//         color: color,
-//         actions: actions
-//   })
-// }
-//
-// const showLoadingBar = (message: string) => {
-//   $q.loading.show({
-//     message: message
-//   })
-// }
 
-// const submitForm = () => {
-//   formData.value.user = authStore.firebaseUserData.uid;
-//
-//   showLoadingBar('Estamos enviando la información. Espere un momento por favor...' )
-//
-//   // api.put(`/profiles/my/profile/${authStore.firebaseUserData.uid}/`,
-//   axios.put(`https://api.empleo.testing.monterrey.gob.mx/api/v1/profiles/my/profile/${authStore.firebaseUserData.uid}/`, formData.value, {
-//     headers: {
-//       'Authorization': 'JWT ' + authStore.firebaseUserData.accessToken,
-//     }
-//   }).then((response: { status: string | number; }) => {
-//     if (response.status === 201) {
-//       responseStatus.value = true
-//       responseMessage.value = 'Respuesta enviada exitosamente!'
-//     } else {
-//       responseMessage.value = responseMessage.value + response.status
-//     }
-//     $q.loading.hide()
-//     showNotification(response.status === 200 ? 'Perfil actualizado exitosamente' : 'Ocurrió un error: ' + response.status, response.status === 200 ? 'green' : 'red', [])
-//     setTimeout(() => {router.push(response.status === 201 || response.status === 200 ? '/inicio' : '/')},1000)
-//       }).catch((error: string) => {
-//         showNotification('Ocurrió un error' + error, 'red', [
-//           { label: 'Aceptar', color: 'white', handler: () => { /* ... */ } }
-//         ])
-//     $q.loading.hide()
-//       })
-// }
+const showNotification = (
+  message: string,
+  color: string,
+  actions: {
+    label: string;
+    color: string;
+    handler: () => void }[] | undefined) => {
+  $q.notify({
+        message: message,
+        color: color,
+        actions: actions
+  })
+}
+
+const showLoadingBar = (message: string) => {
+  $q.loading.show({
+    message: message
+  })
+}
+
+const submitForm = () => {
+  // formData.value.user = authStore.firebaseUserData.uid;
+
+  // $q.loading.show({
+  //       message: 'Estamos enviando la información. Espere un momento por favor...'
+  // })
+
+  // showLoadingBar('Estamos enviando la información. Espere un momento por favor...' )
+
+  // api.put(`/profiles/my/profile/${authStore.firebaseUserData.uid}/`,
+  axios.put(`https://api.empleo.testing.monterrey.gob.mx/api/v1/profiles/my/profile/${authStore.firebaseUserData.uid}/`, formData.value, {
+    headers: {
+      'Authorization': 'JWT ' + authStore.firebaseUserData.accessToken,
+    }
+  }).then((response: { status: string | number; }) => {
+    if (response.status === 201) {
+      responseStatus.value = true
+      responseMessage.value = 'Respuesta enviada exitosamente!'
+    } else {
+      responseMessage.value = responseMessage.value + response.status
+    }
+    // $q.loading.hide()
+    showNotification(response.status === 200 ? 'Perfil actualizado exitosamente' : 'Ocurrió un error: ' + response.status, response.status === 200 ? 'green' : 'red', [])
+    setTimeout(() => {router.push(response.status === 201 || response.status === 200 ? '/inicio' : '/')},1000)
+      }).catch((error: string) => {
+        showNotification('Ocurrió un error' + error, 'red', [
+          { label: 'Aceptar', color: 'white', handler: () => { /* ... */ } }
+        ])
+    // $q.loading.hide()
+      })
+}
+
+// import EntryBlock, { EntryBlockProps } from 'components/Inputs/EntryBlock.vue';
+
+// const userForm: EntryBlockProps[] = [
+//   {
+//     label: 'Nombre(s)',
+//     modelValue: formData.value.first_name,
+//     field_type: 'text',
+//     help_text: '',
+//     clean_name: ''
+//   },
+//     {
+//     label: 'Apellidos',
+//     modelValue: formData.value.first_surname,
+//     field_type: 'text',
+//     help_text: '',
+//     clean_name: ''
+//   },
+//     {
+//     label: 'Fecha de Nacimiento',
+//     modelValue: formData.value.birthdate,
+//     field_type: 'date',
+//     help_text: '',
+//     clean_name: ''
+//   },
+//     {
+//     label: 'Número de celular',
+//     modelValue: formData.value.phone_number,
+//     field_type: 'text',
+//     help_text: '',
+//     clean_name: ''
+//   },
+// ];
 
 </script>

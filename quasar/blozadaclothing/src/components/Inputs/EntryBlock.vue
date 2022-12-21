@@ -9,7 +9,7 @@
       :type="field_type"
       :hint="help_text"
       :name="clean_name"
-      :rules="required ? [val => !!val || `Campo requerido` + `: ${help_text}`] : ''"
+      :rules="required ? [val => !!val || `Campo requerido` + `: ${label}`] : ''"
       v-bind="$attrs"/>
 </template>
 
@@ -20,13 +20,13 @@ export interface EntryBlockProps {
   field_type?: string;
   help_text?: string;
   clean_name?: string;
-  required: boolean | undefined;
+  required?: boolean;
 }
 withDefaults(defineProps<EntryBlockProps>(), {
   field_type: 'text',
   help_text: '',
   clean_name: '',
-  // required: '',
+  required: false,
 });
 
 </script>
