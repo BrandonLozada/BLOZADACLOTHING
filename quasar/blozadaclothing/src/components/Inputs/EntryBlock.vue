@@ -1,32 +1,32 @@
 <template>
-  <div class="q-py-lg">
     <!-- Entry Block -->
     <q-input
       dense
       outlined
       :label="label"
-      :v-model="modelValue"
+      :model-value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
       :type="field_type"
       :hint="help_text"
       :name="clean_name"
       :rules="required ? [val => !!val || `Campo requerido` + `: ${help_text}`] : ''"
-    />
-  </div>
+      v-bind="$attrs"/>
 </template>
 
 <script setup lang="ts">
 export interface EntryBlockProps {
   label: string;
-  modelValue?: never; // modelValue?: any;
+  modelValue: never; // modelValue: any;
   field_type?: string;
   help_text?: string;
   clean_name?: string;
-  required?: string;
+  required: boolean | undefined;
 }
 withDefaults(defineProps<EntryBlockProps>(), {
-  label: '',
   field_type: 'text',
   help_text: '',
+  clean_name: '',
   // required: '',
 });
+
 </script>

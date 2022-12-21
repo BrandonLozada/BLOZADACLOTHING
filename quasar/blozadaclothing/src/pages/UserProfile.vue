@@ -17,29 +17,35 @@
 
                         <q-card-section class="q-gutter-md">
 
-                          <q-input
-                            v-model="formData['first_name']"
-                            hint=""
+                          <EntryBlock
+                            v-model="formData.first_name"
                             label="Nombre(s)"
-                            type="text" />
+                            field_type="text"
+                          />
 
-                          <q-input
-                            v-model="formData['last_name']"
-                            hint=""
-                            label="Apellidos"
-                            type="text" />
+                          <EntryBlock
+                            v-model="formData.first_surname"
+                            label="Primer apellido"
+                            field_type="text"
+                          />
 
-                          <q-input
-                            v-model="formData['birthdate']"
-                            hint=""
-                            label="Fecha de Nacimiento"
-                            type="date" />
+                          <EntryBlock
+                            v-model="formData.second_surname"
+                            label="Segundo apellido (Opcional)"
+                            field_type="text"
+                          />
 
-                          <q-input
-                            v-model="formData['cellphone']"
-                            hint=""
+                          <EntryBlock
+                            v-model="formData.birthdate"
+                            label="Fecha de nacimiento"
+                            field_type="date"
+                          />
+
+                          <EntryBlock
+                            v-model="formData.phone_number"
                             label="Número de celular"
-                            type="text" />
+                            field_type="tel"
+                          />
 
                           <div class="flex justify-end">
                             <q-btn no-caps type="submit" color="primary" label="Guardar" class="bg-accent"/>
@@ -55,7 +61,51 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from 'vue'
+import {ref} from 'vue';
+// import UserForm from 'components/forms/UserForm2.vue';
+// import EntryBlock from 'components/Inputs/EntryBlock.vue';
+
+import EntryBlock, { EntryBlockProps } from 'components/Inputs/EntryBlock.vue';
+
+const formData = ref({
+  first_name: '',
+  first_surname: '',
+  second_surname: '',
+  birthdate: '',
+  phone_number: '',
+})
+
+// const userForm: EntryBlockProps[] = [
+//   {
+//     label: 'Nombre(s)',
+//     modelValue: formData.value.first_name,
+//     field_type: 'text',
+//     help_text: '',
+//     clean_name: ''
+//   },
+//     {
+//     label: 'Apellidos',
+//     modelValue: formData.value.first_surname,
+//     field_type: 'text',
+//     help_text: '',
+//     clean_name: ''
+//   },
+//     {
+//     label: 'Fecha de Nacimiento',
+//     modelValue: formData.value.birthdate,
+//     field_type: 'date',
+//     help_text: '',
+//     clean_name: ''
+//   },
+//     {
+//     label: 'Número de celular',
+//     modelValue: formData.value.phone_number,
+//     field_type: 'text',
+//     help_text: '',
+//     clean_name: ''
+//   },
+// ];
+
 // import {useQuasar, event, date} from 'quasar'
 // import {useRouter, useRoute} from 'vue-router'
 //
@@ -83,7 +133,8 @@ import {ref} from 'vue'
 // const datePattern = /^(0[1-9]|[1-2]\d|3[01])(\/)(0[1-9]|1[012])\2(\d{4})$/
 // let fecha_convertida = ref('');
 //
-const formData = ref({})
+
+
 //
 // const isValidEmail = (val: string) => {
 //   if (!!val) {
