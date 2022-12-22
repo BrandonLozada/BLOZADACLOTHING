@@ -1,26 +1,31 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
-    <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
+  <q-page style="min-height: 650px">
+    <div class="bg-blue text-white text-center q-pa-md flex flex-center">
+      <div>
+        <div style="font-size: 30vh">
+          404
+        </div>
 
-      <div class="text-h2" style="opacity:.5">
-        <div>¡Ukela!</div>
-        No hay nada aquí...
-      </div>
+        <div class="text-h2" style="opacity:.6">
+          No hemos encontrado la página que buscas.
+        </div>
 
-      <q-btn
-        class="q-mt-xl"
-        color="white"
-        text-color="blue"
-        unelevated
-        to="/"
-        label="Ir a Inicio"
-        no-caps
-      />
+        <div class="text-subtitle1">
+          Prueba en inicio de la tienda o desde el buscador en la barra de navegación.
+        </div>
+
+        <q-btn
+          class="q-mt-xl"
+          color="white"
+          text-color="blue"
+          unelevated
+          to="/"
+          label="Ir a Inicio"
+          no-caps
+        />
+      </div>
     </div>
-  </div>
+  </q-page>
 </template>
 
 <script setup lang="ts">

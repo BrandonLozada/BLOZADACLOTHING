@@ -14,11 +14,39 @@ const routes: RouteRecordRaw[] = [
     ],
   },
 
+  // Formularios dinamicos y reutilizables
+  {
+    path: '/forms',
+    // component: () => import('pages/PageForms.vue'),
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '/profile-test', component: () => import('components/forms/UserForm.vue') },
+      {
+        path: '/:catchAll(.*)*',
+        // component: () => import('pages/PageForms.vue'),
+        component: () => import('layouts/MainLayout.vue'),
+      },
+    ],
+  },
+
+  // {
+  //   path: '/forms/',
+  //   component: () => import('layouts/MainLayout.vue'),
+  //   children: [
+  //     { path: '', component: () => import('pages/IndexPage.vue') },
+  //     { path: '/profile', component: () => import('pages/UserProfile.vue') },
+  //     {
+  //       path: '/:catchAll(.*)*',
+  //       component: () => import('pages/IndexPage.vue'),
+  //     },
+  //   ],
+  // },
+
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '/error404',
-    component: () => import('pages/ErrorNotFound.vue'),
+    component: () => import('layouts/MainLayout.vue'),
     children: [
       {path: '', component: () => import('pages/ErrorNotFound.vue')},
     ],
