@@ -1,16 +1,16 @@
 <template>
-    <!-- Entry Block -->
-    <q-input
-      dense
-      outlined
-      :label="label"
-      :model-value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-      :type="field_type"
-      :hint="help_text"
-      :name="clean_name"
-      :rules="required ? [val => !!val || `Campo requerido` + `: ${label}`] : ''"
-      v-bind="$attrs"/>
+  <!-- Entry Block -->
+  <q-input
+    dense
+    outlined
+    :label="label"
+    :model-value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+    :type="field_type"
+    :hint="help_text"
+    :name="clean_name"
+    :rules="required ? [val => !!val || `Campo requerido` + `: ${label}`] : ''"
+    v-bind="$attrs"/>
 </template>
 
 <script setup lang="ts">

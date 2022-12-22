@@ -12,7 +12,7 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          B Lozada Clothing.
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
@@ -28,14 +28,33 @@
         <q-item-label
           header
         >
-          Essential Links
         </q-item-label>
 
         <EssentialLink
-          v-for="link in essentialLinks"
+          v-for="link in authNavigationMenu"
           :key="link.title"
           v-bind="link"
         />
+
+        <q-separator></q-separator>
+        <q-item-label
+          header
+        >
+          Mis accesos
+        </q-item-label>
+
+        <EssentialLink
+          v-for="link in myNavigationMenu"
+          :key="link.title"
+          v-bind="link"
+        />
+
+<!--        <EssentialLink-->
+<!--          v-for="link in essentialLinks"-->
+<!--          :key="link.title"-->
+<!--          v-bind="link"-->
+<!--        />-->
+
       </q-list>
     </q-drawer>
 
@@ -48,6 +67,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
+import NavigationMenu from 'components/common/NavigationMenu.vue'
 
 const essentialLinks: EssentialLinkProps[] = [
   {
@@ -93,6 +113,205 @@ const essentialLinks: EssentialLinkProps[] = [
     link: 'https://awesome.quasar.dev'
   }
 ];
+
+const myNavigationMenu: EssentialLinkProps[] = [
+  {
+    title: 'Favoritos',
+    caption: 'Un texto debajo solo como ejemplo y práctica',
+    icon: 'favorite',
+    meta: {
+      slug: '/my-favorites',
+    }
+  },
+  {
+    title: 'Guardados',
+    caption: 'Favoritos y Guardados pueden ser el mismo, ' +
+              'ya que ya se encuentra Lista de deseos',
+    icon: 'book',
+    meta: {
+      slug: '/my-bookmarks',
+    }
+  },
+  {
+    title: 'Compras',
+    icon: 'shopping_bag',
+    meta: {
+      slug: '/my-purchases',
+    }
+  },
+  {
+    title: 'Lista de deseos',
+    icon: 'collections_bookmark',
+    meta: {
+      slug: '/my-wishlists',
+    }
+  }
+];
+
+const authNavigationMenu: EssentialLinkProps[] = [
+  {
+    title: 'Inicio',
+    caption: 'Un texto debajo solo como ejemplo y práctica',
+    icon: 'home',
+    meta: {
+      slug: '/',
+    }
+  },
+  {
+    title: 'Categorias',
+    icon: 'category',
+    meta: {
+      slug: '/categories',
+    }
+  },
+  {
+    title: 'Recomendaciones',
+    icon: 'recommend',
+    meta: {
+      slug: '/recommendations',
+    }
+  },
+  {
+    title: 'Notificaciones',
+    icon: 'notifications',
+    meta: {
+      slug: '/my-notifications',
+    }
+  },
+  {
+    title: 'Valoraciones',
+    icon: 'stars',
+    meta: {
+      slug: '/my-valuations',
+    }
+  }
+];
+
+const noAuthNavigationMenu: EssentialLinkProps[] = [
+  {
+    title: 'Inicio',
+    caption: 'Un texto debajo solo como ejemplo y práctica',
+    icon: 'home',
+    meta: {
+      slug: '/',
+    }
+  },
+  {
+    title: 'Categorias',
+    icon: 'mail',
+    meta: {
+      slug: '/categories',
+    }
+  },
+  {
+    title: 'Recomendaciones',
+    icon: 'recommend',
+    meta: {
+      slug: '/recommendations',
+    }
+  }
+];
+
+const especialNavigationMenu: EssentialLinkProps[] = [
+  {
+    title: 'Atención al cliente',
+    caption: 'Ayuda: va con Atención a cliente, ' +
+      'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal',
+    icon: 'contact_support',
+    meta: {
+      slug: '/contact-support',
+    }
+  },  {
+    title: 'Configuración',
+    caption: 'Cuenta: Inicio de sesión' +
+             'General: Tema, País o región, Traducción, Borrar historial ',
+    icon: 'settings',
+    meta: {
+      slug: '/settings',
+    }
+  },
+  {
+    title: 'Ayuda',
+    caption: 'Ayuda: va con Atención a cliente, ' +
+      'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal,' +
+      'Accesibilidad: Personas con debilidad visual, Daltonismo (Cambiar los colores, etc.)' +
+      'Inclusividad: Inclusión a personas, etc. (Buscar e incluir)',
+    icon: 'help',
+    meta: {
+      slug: '/help',
+    }
+  }
+];
+
+const footer: EssentialLinkProps[] = [
+  {
+    title: 'Atención al cliente',
+    caption: 'Ayuda: va con Atención a cliente, ' +
+             'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal',
+    meta: {
+      slug: '/contact-support',
+    }
+  },
+  {
+    title: 'Configuración',
+    caption: 'Cuenta: Inicio de sesión' +
+             'General: Tema, País o región, Traducción, Borrar historial ',
+    meta: {
+      slug: '/settings',
+    }
+  },
+  {
+    title: 'Ayuda',
+    caption: 'Ayuda: va con Atención a cliente, ' +
+             'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal,' +
+             'Accesibilidad: Personas con debilidad visual, Daltonismo (Cambiar los colores, etc.)' +
+             'Inclusividad: Inclusión a personas, etc. (Buscar e incluir)',
+    meta: {
+      slug: '/help',
+    }
+  },
+  {
+    title: 'Acerca de nosotros',
+    caption: 'Acerca de nosotros: ¿Quienes somos?, ¿Qué hacemos? Emprendurismo -> Misión, Visión, Valores' +
+             'Contacto: Dirección de oficina' +
+             'Patrocinio, publicidad: Se mi proveedor' +
+             'Otra opción: Alguna otra opción',
+    icon: 'business_center',
+    meta: {
+      slug: '/about-us',
+    }
+  }
+];
+
+// Redes sociales (Pueden ser solo iconos debajo del logo del sitio)
+    // Facebook
+    // Twitter - opcional
+    // YouTube - opcional
+    // Instagram
+// Blog
+    // Noticias
+// Contacto
+    // Oficina AX3 SAS
+    // Campestre 303
+    // Casa Blanca San Ángel, N.L. C.P. 66475
+    // Celular: (+52) 818-025-1208 = href tel:+528180251208
+// Chat
+    // Messenger
+// Enlaces (Directo a la página final)
+    // Atención al cliente
+    // Configuración
+    // Ayuda
+    // Acerca de nosotros (Emprendurismo -> Misión, Visión, Valores)
+    // Contacto
+    // Patrocinio
+
+// Aviso de privacidad | Transparencia
+// Seguido de la empresa dueña o marca de la pagina, Copyright (R) 2023. Mty, NL, México
+// Developed by Brandon Lozada in Quasar <3 (liga a LinkedIn: https://www.linkedin.com/in/brandon-lozada/)
+
+// Uso de Cookies y caché, (rastreo y seguimiento de datos)
+// Me gusta el aviso de abajo
+// https://www.videojet.mx/mx/homepage/resources/glossary/product-tracking-traceability/product-tracking.html
 
 const leftDrawerOpen = ref(false)
 
