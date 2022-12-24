@@ -1,29 +1,8 @@
 <template>
-  <!-- essentialLinks | Los que mandan a referencia externa-->
-  <q-item v-if="link"
-    clickable
-    tag="a"
-    target="_blank"
-    :href="link"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
-      <q-icon :name="icon" />
-    </q-item-section>
-
-    <q-item-section>
-      <q-item-label>{{ title }}</q-item-label>
-      <q-item-label caption>{{ caption }}</q-item-label>
-    </q-item-section>
-  </q-item>
-
-  <!-- Para los que dirigen a páginas -->
-  <q-item v-if="meta.slug"
+  <!-- meta | Para los que dirigen a páginas -->
+  <q-item v-if="meta"
     clickable
     v-ripple
-    :key="id"
     :to="meta.slug"
   >
     <q-item-section avatar>
@@ -34,10 +13,9 @@
     </q-item-section>
   </q-item>
 
-  <!-- Para los que se despliegan las páginas hijas -->
+  <!-- children | Para los que se despliegan las páginas hijas -->
   <q-expansion-item v-if="children"
     switch-toggle-side
-    :key="id"
     :label="title"
     default-opened
   >
@@ -58,6 +36,26 @@
     </q-item>
   </q-expansion-item>
 
+  <!-- link | Los que mandan a referencia externa -->
+  <q-item v-if="link"
+    clickable
+    tag="a"
+    target="_blank"
+    :href="link"
+  >
+    <q-item-section
+      v-if="icon"
+      avatar
+    >
+      <q-icon :name="icon" />
+    </q-item-section>
+
+    <q-item-section>
+      <q-item-label>{{ title }}</q-item-label>
+      <q-item-label caption>{{ caption }}</q-item-label>
+    </q-item-section>
+  </q-item>
+
 </template>
 
 <script setup lang="ts">
@@ -66,17 +64,28 @@
 export interface EssentialLinkProps {
   title: string;
   caption?: string;
-  meta?: {
-    slug: string;
-  };
+  meta?: MetaProps;
+  children?: ChildrenProps[];
+  // meta?: {
+  //   slug: string;
+  // };
   link?: string;
   icon?: string;
 }
 withDefaults(defineProps<EssentialLinkProps>(), {
   caption: '',
   // meta: '',
-  slug: '',
-  link: '',
+  // slug: '',
+  // link: '#',
   icon: '',
 });
+
+export interface MetaProps {
+  slug: string;
+}
+
+export interface ChildrenProps {
+  EssentialLinkProps: EssentialLinkProps
+}
+
 </script>

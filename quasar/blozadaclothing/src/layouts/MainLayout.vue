@@ -28,32 +28,70 @@
         <q-item-label
           header
         >
+          authNavigationMenu
         </q-item-label>
 
         <EssentialLink
-          v-for="link in authNavigationMenu"
+          v-for="item in authNavigationMenu"
+          :key="item.title"
+          v-bind="item"
+        />
+
+        <q-separator></q-separator>
+
+        <q-item-label
+          header
+        >
+          Mis accesos - myNavigationMenu
+        </q-item-label>
+
+        <EssentialLink
+          v-for="item in myNavigationMenu"
+          :key="item.title"
+          v-bind="item"
+        />
+
+        <q-separator></q-separator>
+
+        <q-item-label
+          header
+        >
+          especialNavigationMenu
+        </q-item-label>
+
+        <EssentialLink
+          v-for="item in especialNavigationMenu"
+          :key="item.title"
+          v-bind="item"
+        />
+
+        <q-separator></q-separator>
+
+        <q-item-label
+          header
+        >
+          essentialLinks
+        </q-item-label>
+
+        <EssentialLink
+          v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
         />
 
         <q-separator></q-separator>
+
         <q-item-label
           header
         >
-          Mis accesos
+          myProfileNavigationMenu
         </q-item-label>
 
         <EssentialLink
-          v-for="link in myNavigationMenu"
-          :key="link.title"
-          v-bind="link"
+          v-for="item3 in myProfileNavigationMenu"
+          :key="item3.title"
+          v-bind="item3"
         />
-
-<!--        <EssentialLink-->
-<!--          v-for="link in essentialLinks"-->
-<!--          :key="link.title"-->
-<!--          v-bind="link"-->
-<!--        />-->
 
       </q-list>
     </q-drawer>
@@ -111,40 +149,6 @@ const essentialLinks: EssentialLinkProps[] = [
     caption: 'Community Quasar projects',
     icon: 'favorite',
     link: 'https://awesome.quasar.dev'
-  }
-];
-
-const myNavigationMenu: EssentialLinkProps[] = [
-  {
-    title: 'Favoritos',
-    caption: 'Un texto debajo solo como ejemplo y práctica',
-    icon: 'favorite',
-    meta: {
-      slug: '/my-favorites',
-    }
-  },
-  {
-    title: 'Guardados',
-    caption: 'Favoritos y Guardados pueden ser el mismo, ' +
-              'ya que ya se encuentra Lista de deseos',
-    icon: 'book',
-    meta: {
-      slug: '/my-bookmarks',
-    }
-  },
-  {
-    title: 'Compras',
-    icon: 'shopping_bag',
-    meta: {
-      slug: '/my-purchases',
-    }
-  },
-  {
-    title: 'Lista de deseos',
-    icon: 'collections_bookmark',
-    meta: {
-      slug: '/my-wishlists',
-    }
   }
 ];
 
@@ -208,6 +212,40 @@ const noAuthNavigationMenu: EssentialLinkProps[] = [
     icon: 'recommend',
     meta: {
       slug: '/recommendations',
+    }
+  }
+];
+
+const myNavigationMenu: EssentialLinkProps[] = [
+  {
+    title: 'Favoritos',
+    caption: 'Un texto debajo solo como ejemplo y práctica',
+    icon: 'favorite',
+    meta: {
+      slug: '/my-favorites',
+    }
+  },
+  {
+    title: 'Guardados',
+    caption: 'Favoritos y Guardados pueden ser el mismo, ' +
+              'ya que ya se encuentra Lista de deseos',
+    icon: 'book',
+    meta: {
+      slug: '/my-bookmarks',
+    }
+  },
+  {
+    title: 'Compras',
+    icon: 'shopping_bag',
+    meta: {
+      slug: '/my-purchases',
+    }
+  },
+  {
+    title: 'Lista de deseos',
+    icon: 'collections_bookmark',
+    meta: {
+      slug: '/my-wishlists',
     }
   }
 ];
@@ -280,6 +318,46 @@ const footer: EssentialLinkProps[] = [
     meta: {
       slug: '/about-us',
     }
+  }
+];
+
+const myProfileNavigationMenu: EssentialLinkProps[] = [
+  {
+    title: 'Inicio',
+    icon: 'home',
+    meta: {
+      slug: '/',
+    }
+  },
+  {
+    title: 'Mi perfil',
+    icon: 'person',
+    meta: {
+      slug: '/my-profile',
+    },
+    children: [
+      {
+        title: 'Datos personales',
+        icon: 'business',
+        meta: {
+          slug: '/personal-information',
+        }
+      },
+      {
+        title: 'Direcciones',
+        icon: 'location_home',
+        meta: {
+          slug: '/my-addreses',
+        }
+      },
+      {
+        title: 'Mis formas de pago',
+        icon: 'payments',
+        meta: {
+          slug: '/my-payments',
+        }
+      }
+    ]
   }
 ];
 
