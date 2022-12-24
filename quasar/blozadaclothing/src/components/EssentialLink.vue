@@ -14,13 +14,14 @@
   </q-item>
 
   <!-- children | Para los que se despliegan las páginas hijas -->
-  <q-expansion-item v-if="children"
+  <q-expansion-item v-if="item.children"
     switch-toggle-side
-    :label="title"
+    :key="item.id"
+    :label="item.title"
     default-opened
   >
     <q-item
-      v-for="item in children"
+      v-for="item in item.children"
       :key="item.id"
       :to="item.meta.slug"
       class="q-pl-xl"

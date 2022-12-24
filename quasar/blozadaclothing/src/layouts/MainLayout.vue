@@ -79,16 +79,44 @@
           v-bind="link"
         />
 
+<!--        <q-separator></q-separator>-->
+
+<!--        <q-item-label-->
+<!--          header-->
+<!--        >-->
+<!--          myProfileNavigationMenu-->
+<!--        </q-item-label>-->
+
+<!--        <EssentialLink-->
+<!--          v-for="item3 in myProfileNavigationMenu"-->
+<!--          :key="item3.title"-->
+<!--          v-bind="item3"-->
+<!--        />-->
+
+<!--        <q-separator></q-separator>-->
+
+<!--        <q-item-label-->
+<!--          header-->
+<!--        >-->
+<!--          navegacionAuthData-->
+<!--        </q-item-label>-->
+
+<!--        <EssentialLink-->
+<!--          v-for="item3 in navegacionAuthData"-->
+<!--          :key="item3.title"-->
+<!--          v-bind="item3"-->
+<!--        />-->
+
         <q-separator></q-separator>
 
         <q-item-label
           header
         >
-          myProfileNavigationMenu
+          navegacionAuthData2
         </q-item-label>
 
         <EssentialLink
-          v-for="item3 in myProfileNavigationMenu"
+          v-for="item3 in navegacionAuthData2"
           :key="item3.title"
           v-bind="item3"
         />
@@ -320,6 +348,114 @@ const footer: EssentialLinkProps[] = [
     }
   }
 ];
+
+const navegacionAuthData: EssentialLinkProps[] = [
+  {
+    title: 'Página principal',
+    icon: 'home',
+    meta: {
+      slug: '/inicio',
+    }
+  },
+  {
+    title: 'Mi perfil',
+    icon: 'manage_accounts',
+    meta: {
+      slug: '/mi-perfil',
+    }
+  },
+  {
+    title: 'Mis empresas',
+    icon: 'business',
+    meta: {
+      slug: '/lista-empresas',
+    },
+    children:[
+      {
+        title: 'Listado de empresas',
+        icon: 'business',
+        meta: {
+          slug: '/lista-empresas',
+        }
+      },
+      {
+        title: 'Mis sucursales',
+        icon: 'business',
+        meta: {
+          slug: '/lista-sucursales',
+        }
+      },
+      {
+        title: 'Mis reclutadores',
+        icon: 'groups',
+        meta: {
+          slug: '/lista-reclutadores',
+        }
+      },
+      {
+        title: 'Postulaciones a mis vancantes',
+        icon: 'groups',
+        meta: {
+          slug: '/company-job-applications',
+        }
+      }
+    ]
+  }
+];
+
+const navegacionAuthData2 = [
+  {
+    title: 'Página principal',
+    icon: 'home',
+    meta: {
+      slug: '/inicio',
+    }
+  },
+  {
+    title: 'Mi perfil',
+    icon: 'manage_accounts',
+    meta: {
+      slug: '/mi-perfil',
+    }
+  },
+  {
+    title: 'Mis empresas',
+    icon: 'business',
+    meta: {
+      slug: '/lista-empresas',
+    },
+    children:[
+      {
+        title: 'Listado de empresas',
+        icon: 'business',
+        meta: {
+          slug: '/lista-empresas',
+        }
+      },
+      {
+        title: 'Mis sucursales',
+        icon: 'business',
+        meta: {
+          slug: '/lista-sucursales',
+        }
+      },
+      {
+        title: 'Mis reclutadores',
+        icon: 'groups',
+        meta: {
+          slug: '/lista-reclutadores',
+        }
+      },
+      {
+        title: 'Postulaciones a mis vancantes',
+        icon: 'groups',
+        meta: {
+          slug: '/company-job-applications',
+        }
+      }
+    ]
+  }
+]
 
 const myProfileNavigationMenu: EssentialLinkProps[] = [
   {
