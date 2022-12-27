@@ -79,46 +79,46 @@
           v-bind="link"
         />
 
-<!--        <q-separator></q-separator>-->
+        <q-separator></q-separator>
 
-<!--        <q-item-label-->
-<!--          header-->
-<!--        >-->
-<!--          myProfileNavigationMenu-->
-<!--        </q-item-label>-->
+        <q-item-label
+          header
+        >
+          myProfileNavigationMenu
+        </q-item-label>
 
-<!--        <EssentialLink-->
-<!--          v-for="item3 in myProfileNavigationMenu"-->
-<!--          :key="item3.title"-->
-<!--          v-bind="item3"-->
-<!--        />-->
-
-<!--        <q-separator></q-separator>-->
-
-<!--        <q-item-label-->
-<!--          header-->
-<!--        >-->
-<!--          navegacionAuthData-->
-<!--        </q-item-label>-->
-
-<!--        <EssentialLink-->
-<!--          v-for="item3 in navegacionAuthData"-->
-<!--          :key="item3.title"-->
-<!--          v-bind="item3"-->
-<!--        />-->
+        <EssentialLink
+          v-for="item in myProfileNavigationMenu"
+          :key="item.title"
+          v-bind="item"
+        />
 
         <q-separator></q-separator>
 
         <q-item-label
           header
         >
-          navegacionAuthData2
+          objStruct
         </q-item-label>
 
         <EssentialLink
-          v-for="item3 in navegacionAuthData2"
-          :key="item3.title"
-          v-bind="item3"
+          v-for="item in objStruct"
+          :key="item.title"
+          v-bind="item"
+        />
+
+        <q-separator></q-separator>
+
+        <q-item-label
+          header
+        >
+          objNormal
+        </q-item-label>
+
+        <EssentialLink
+          v-for="item in objNormal"
+          :key="item.title"
+          v-bind="item"
         />
 
       </q-list>
@@ -133,7 +133,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
-import NavigationMenu from 'components/common/NavigationMenu.vue'
+// import NavigationMenu from 'components/common/NavigationMenu.vue'
 
 const essentialLinks: EssentialLinkProps[] = [
   {
@@ -349,7 +349,40 @@ const footer: EssentialLinkProps[] = [
   }
 ];
 
-const navegacionAuthData: EssentialLinkProps[] = [
+const objNormal = [
+  {
+    title: 'Mi perfil',
+    icon: 'manage_accounts',
+    meta: {
+      slug: '/mi-perfil',
+    }
+  },
+  {
+    title: 'Mis empresas',
+    icon: 'business',
+    meta: {
+      slug: '/lista-empresas',
+    },
+    children:[
+      {
+        title: 'Listado de empresas',
+        icon: 'business',
+        meta: {
+          slug: '/lista-empresas',
+        }
+      },
+      {
+        title: 'Mis sucursales',
+        icon: 'business',
+        meta: {
+          slug: '/lista-sucursales',
+        }
+      }
+    ]
+  }
+]
+
+const objStruct: EssentialLinkProps[] = [
   {
     title: 'Página principal',
     icon: 'home',
@@ -403,60 +436,6 @@ const navegacionAuthData: EssentialLinkProps[] = [
   }
 ];
 
-const navegacionAuthData2 = [
-  {
-    title: 'Página principal',
-    icon: 'home',
-    meta: {
-      slug: '/inicio',
-    }
-  },
-  {
-    title: 'Mi perfil',
-    icon: 'manage_accounts',
-    meta: {
-      slug: '/mi-perfil',
-    }
-  },
-  {
-    title: 'Mis empresas',
-    icon: 'business',
-    meta: {
-      slug: '/lista-empresas',
-    },
-    children:[
-      {
-        title: 'Listado de empresas',
-        icon: 'business',
-        meta: {
-          slug: '/lista-empresas',
-        }
-      },
-      {
-        title: 'Mis sucursales',
-        icon: 'business',
-        meta: {
-          slug: '/lista-sucursales',
-        }
-      },
-      {
-        title: 'Mis reclutadores',
-        icon: 'groups',
-        meta: {
-          slug: '/lista-reclutadores',
-        }
-      },
-      {
-        title: 'Postulaciones a mis vancantes',
-        icon: 'groups',
-        meta: {
-          slug: '/company-job-applications',
-        }
-      }
-    ]
-  }
-]
-
 const myProfileNavigationMenu: EssentialLinkProps[] = [
   {
     title: 'Inicio',
@@ -481,7 +460,7 @@ const myProfileNavigationMenu: EssentialLinkProps[] = [
       },
       {
         title: 'Direcciones',
-        icon: 'location_home',
+        icon: 'home',
         meta: {
           slug: '/my-addreses',
         }

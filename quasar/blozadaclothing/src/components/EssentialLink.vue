@@ -1,38 +1,48 @@
 <template>
-  <!-- meta | Para los que dirigen a páginas -->
-  <q-item v-if="meta"
+  <!-- meta | Para los que dirigen a páginas que no contienen hijas -->
+  <q-item
     clickable
     v-ripple
+    v-if="!children && !link"
     :to="meta.slug"
   >
-    <q-item-section avatar>
+    <q-item-section
+      v-if="icon"
+      avatar
+    >
       <q-icon :name="icon" />
     </q-item-section>
+
     <q-item-section>
-      {{ title }}
+      <q-item-label>{{ title }}</q-item-label>
+      <q-item-label caption>{{ caption }}</q-item-label>
     </q-item-section>
   </q-item>
 
-  <!-- children | Para los que se despliegan las páginas hijas -->
-  <q-expansion-item v-if="item.children"
+  <!-- children | Para los que contienen y que se despliegan las páginas hijas -->
+  <q-expansion-item
     switch-toggle-side
-    :key="item.id"
-    :label="item.title"
+    v-if="children"
+    :label="title"
     default-opened
   >
     <q-item
-      v-for="item in item.children"
-      :key="item.id"
-      :to="item.meta.slug"
+      v-for="elemento in children"
+      :key="elemento.id"
+      :to="elemento.meta.slug"
       class="q-pl-xl"
       clickable
       v-ripple
     >
-      <q-item-section avatar>
-        <q-icon :name="item.icon" />
+      <q-item-section
+        v-if="elemento.icon"
+        avatar>
+        <q-icon :name="elemento.icon" />
       </q-item-section>
+
       <q-item-section>
-        {{ item.title }}
+        <q-item-label>{{ elemento.title }}</q-item-label>
+        <q-item-label caption>{{ elemento.caption }}</q-item-label>
       </q-item-section>
     </q-item>
   </q-expansion-item>
@@ -56,7 +66,6 @@
       <q-item-label caption>{{ caption }}</q-item-label>
     </q-item-section>
   </q-item>
-
 </template>
 
 <script setup lang="ts">
@@ -66,7 +75,7 @@ export interface EssentialLinkProps {
   title: string;
   caption?: string;
   meta?: MetaProps;
-  children?: ChildrenProps[];
+  children?: EssentialLinkProps[];
   // meta?: {
   //   slug: string;
   // };
@@ -85,8 +94,8 @@ export interface MetaProps {
   slug: string;
 }
 
-export interface ChildrenProps {
-  EssentialLinkProps: EssentialLinkProps
-}
+// export interface ChildrenProps {
+//   EssentialLinkProps: EssentialLinkProps
+// }
 
 </script>
