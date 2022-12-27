@@ -1,5 +1,5 @@
 <template>
-  <!-- meta | Para los que dirigen a páginas que no contienen hijas -->
+  <!-- meta | Para los que no contienen hijas y que dirigen a páginas -->
   <q-item
     clickable
     v-ripple
@@ -27,22 +27,22 @@
     default-opened
   >
     <q-item
-      v-for="elemento in children"
-      :key="elemento.id"
-      :to="elemento.meta.slug"
+      v-for="item in children"
+      :key="item.id"
+      :to="item.meta.slug"
       class="q-pl-xl"
       clickable
       v-ripple
     >
       <q-item-section
-        v-if="elemento.icon"
+        v-if="item.icon"
         avatar>
-        <q-icon :name="elemento.icon" />
+        <q-icon :name="item.icon" />
       </q-item-section>
 
       <q-item-section>
-        <q-item-label>{{ elemento.title }}</q-item-label>
-        <q-item-label caption>{{ elemento.caption }}</q-item-label>
+        <q-item-label>{{ item.title }}</q-item-label>
+        <q-item-label caption>{{ item.caption }}</q-item-label>
       </q-item-section>
     </q-item>
   </q-expansion-item>
@@ -69,33 +69,20 @@
 </template>
 
 <script setup lang="ts">
-// Comprobar más el de meta y luego replicar para children
-// Agregar el children
 export interface EssentialLinkProps {
   title: string;
   caption?: string;
   meta?: MetaProps;
   children?: EssentialLinkProps[];
-  // meta?: {
-  //   slug: string;
-  // };
   link?: string;
   icon?: string;
 }
 withDefaults(defineProps<EssentialLinkProps>(), {
   caption: '',
-  // meta: '',
-  // slug: '',
-  // link: '#',
   icon: '',
 });
 
 export interface MetaProps {
   slug: string;
 }
-
-// export interface ChildrenProps {
-//   EssentialLinkProps: EssentialLinkProps
-// }
-
 </script>

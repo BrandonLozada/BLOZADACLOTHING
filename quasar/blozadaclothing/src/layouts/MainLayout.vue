@@ -24,7 +24,7 @@
       show-if-above
       bordered
     >
-      <q-list>
+      <q-list class="text-weight-regular">
         <q-item-label
           header
         >
@@ -41,8 +41,9 @@
 
         <q-item-label
           header
+          class="text-grey-9"
         >
-          Mis accesos - myNavigationMenu
+          Mis accesos
         </q-item-label>
 
         <EssentialLink
@@ -53,73 +54,25 @@
 
         <q-separator></q-separator>
 
-        <q-item-label
-          header
-        >
-          especialNavigationMenu
-        </q-item-label>
-
         <EssentialLink
           v-for="item in especialNavigationMenu"
           :key="item.title"
           v-bind="item"
         />
 
-        <q-separator></q-separator>
+<!--        <q-separator></q-separator>-->
 
-        <q-item-label
-          header
-        >
-          essentialLinks
-        </q-item-label>
+<!--        <q-item-label-->
+<!--          header-->
+<!--        >-->
+<!--          myProfileNavigationMenu-->
+<!--        </q-item-label>-->
 
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-
-        <q-separator></q-separator>
-
-        <q-item-label
-          header
-        >
-          myProfileNavigationMenu
-        </q-item-label>
-
-        <EssentialLink
-          v-for="item in myProfileNavigationMenu"
-          :key="item.title"
-          v-bind="item"
-        />
-
-        <q-separator></q-separator>
-
-        <q-item-label
-          header
-        >
-          objStruct
-        </q-item-label>
-
-        <EssentialLink
-          v-for="item in objStruct"
-          :key="item.title"
-          v-bind="item"
-        />
-
-        <q-separator></q-separator>
-
-        <q-item-label
-          header
-        >
-          objNormal
-        </q-item-label>
-
-        <EssentialLink
-          v-for="item in objNormal"
-          :key="item.title"
-          v-bind="item"
-        />
+<!--        <EssentialLink-->
+<!--          v-for="item in myProfileNavigationMenu"-->
+<!--          :key="item.title"-->
+<!--          v-bind="item"-->
+<!--        />-->
 
       </q-list>
     </q-drawer>
@@ -183,7 +136,6 @@ const essentialLinks: EssentialLinkProps[] = [
 const authNavigationMenu: EssentialLinkProps[] = [
   {
     title: 'Inicio',
-    caption: 'Un texto debajo solo como ejemplo y práctica',
     icon: 'home',
     meta: {
       slug: '/',
@@ -247,7 +199,6 @@ const noAuthNavigationMenu: EssentialLinkProps[] = [
 const myNavigationMenu: EssentialLinkProps[] = [
   {
     title: 'Favoritos',
-    caption: 'Un texto debajo solo como ejemplo y práctica',
     icon: 'favorite',
     meta: {
       slug: '/my-favorites',
@@ -255,8 +206,7 @@ const myNavigationMenu: EssentialLinkProps[] = [
   },
   {
     title: 'Guardados',
-    caption: 'Favoritos y Guardados pueden ser el mismo, ' +
-              'ya que ya se encuentra Lista de deseos',
+    // caption: 'Favoritos y Guardados pueden ser el mismo ya que ya se encuentra Lista de deseos',
     icon: 'book',
     meta: {
       slug: '/my-bookmarks',
@@ -281,16 +231,16 @@ const myNavigationMenu: EssentialLinkProps[] = [
 const especialNavigationMenu: EssentialLinkProps[] = [
   {
     title: 'Atención al cliente',
-    caption: 'Ayuda: va con Atención a cliente, ' +
-      'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal',
+    // caption: 'Ayuda: va con Atención a cliente, ' +
+    //   'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal',
     icon: 'contact_support',
     meta: {
       slug: '/contact-support',
     }
   },  {
     title: 'Configuración',
-    caption: 'Cuenta: Inicio de sesión' +
-             'General: Tema, País o región, Traducción, Borrar historial ',
+    // caption: 'Cuenta: Inicio de sesión' +
+    //          'General: Tema, País o región, Traducción, Borrar historial ',
     icon: 'settings',
     meta: {
       slug: '/settings',
@@ -298,141 +248,14 @@ const especialNavigationMenu: EssentialLinkProps[] = [
   },
   {
     title: 'Ayuda',
-    caption: 'Ayuda: va con Atención a cliente, ' +
-      'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal,' +
-      'Accesibilidad: Personas con debilidad visual, Daltonismo (Cambiar los colores, etc.)' +
-      'Inclusividad: Inclusión a personas, etc. (Buscar e incluir)',
+    // caption: 'Ayuda: va con Atención a cliente, ' +
+    //   'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal,' +
+    //   'Accesibilidad: Personas con debilidad visual, Daltonismo (Cambiar los colores, etc.)' +
+    //   'Inclusividad: Inclusión a personas, etc. (Buscar e incluir)',
     icon: 'help',
     meta: {
       slug: '/help',
     }
-  }
-];
-
-const footer: EssentialLinkProps[] = [
-  {
-    title: 'Atención al cliente',
-    caption: 'Ayuda: va con Atención a cliente, ' +
-             'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal',
-    meta: {
-      slug: '/contact-support',
-    }
-  },
-  {
-    title: 'Configuración',
-    caption: 'Cuenta: Inicio de sesión' +
-             'General: Tema, País o región, Traducción, Borrar historial ',
-    meta: {
-      slug: '/settings',
-    }
-  },
-  {
-    title: 'Ayuda',
-    caption: 'Ayuda: va con Atención a cliente, ' +
-             'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal,' +
-             'Accesibilidad: Personas con debilidad visual, Daltonismo (Cambiar los colores, etc.)' +
-             'Inclusividad: Inclusión a personas, etc. (Buscar e incluir)',
-    meta: {
-      slug: '/help',
-    }
-  },
-  {
-    title: 'Acerca de nosotros',
-    caption: 'Acerca de nosotros: ¿Quienes somos?, ¿Qué hacemos? Emprendurismo -> Misión, Visión, Valores' +
-             'Contacto: Dirección de oficina' +
-             'Patrocinio, publicidad: Se mi proveedor' +
-             'Otra opción: Alguna otra opción',
-    icon: 'business_center',
-    meta: {
-      slug: '/about-us',
-    }
-  }
-];
-
-const objNormal = [
-  {
-    title: 'Mi perfil',
-    icon: 'manage_accounts',
-    meta: {
-      slug: '/mi-perfil',
-    }
-  },
-  {
-    title: 'Mis empresas',
-    icon: 'business',
-    meta: {
-      slug: '/lista-empresas',
-    },
-    children:[
-      {
-        title: 'Listado de empresas',
-        icon: 'business',
-        meta: {
-          slug: '/lista-empresas',
-        }
-      },
-      {
-        title: 'Mis sucursales',
-        icon: 'business',
-        meta: {
-          slug: '/lista-sucursales',
-        }
-      }
-    ]
-  }
-]
-
-const objStruct: EssentialLinkProps[] = [
-  {
-    title: 'Página principal',
-    icon: 'home',
-    meta: {
-      slug: '/inicio',
-    }
-  },
-  {
-    title: 'Mi perfil',
-    icon: 'manage_accounts',
-    meta: {
-      slug: '/mi-perfil',
-    }
-  },
-  {
-    title: 'Mis empresas',
-    icon: 'business',
-    meta: {
-      slug: '/lista-empresas',
-    },
-    children:[
-      {
-        title: 'Listado de empresas',
-        icon: 'business',
-        meta: {
-          slug: '/lista-empresas',
-        }
-      },
-      {
-        title: 'Mis sucursales',
-        icon: 'business',
-        meta: {
-          slug: '/lista-sucursales',
-        }
-      },
-      {
-        title: 'Mis reclutadores',
-        icon: 'groups',
-        meta: {
-          slug: '/lista-reclutadores',
-        }
-      },
-      {
-        title: 'Postulaciones a mis vancantes',
-        icon: 'groups',
-        meta: {
-          slug: '/company-job-applications',
-        }
-      }
-    ]
   }
 ];
 
@@ -473,6 +296,46 @@ const myProfileNavigationMenu: EssentialLinkProps[] = [
         }
       }
     ]
+  }
+];
+
+const footer: EssentialLinkProps[] = [
+  {
+    title: 'Atención al cliente',
+    caption: 'Ayuda: va con Atención a cliente, ' +
+             'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal',
+    meta: {
+      slug: '/contact-support',
+    }
+  },
+  {
+    title: 'Configuración',
+    caption: 'Cuenta: Inicio de sesión' +
+             'General: Tema, País o región, Traducción, Borrar historial ',
+    meta: {
+      slug: '/settings',
+    }
+  },
+  {
+    title: 'Ayuda',
+    caption: 'Ayuda: va con Atención a cliente, ' +
+             'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal,' +
+             'Accesibilidad: Personas con debilidad visual, Daltonismo (Cambiar los colores, etc.)' +
+             'Inclusividad: Inclusión a personas, etc. (Buscar e incluir)',
+    meta: {
+      slug: '/help',
+    }
+  },
+  {
+    title: 'Acerca de nosotros',
+    caption: 'Acerca de nosotros: ¿Quienes somos?, ¿Qué hacemos? Emprendurismo -> Misión, Visión, Valores' +
+             'Contacto: Dirección de oficina' +
+             'Patrocinio, publicidad: Se mi proveedor' +
+             'Otra opción: Alguna otra opción',
+    icon: 'business_center',
+    meta: {
+      slug: '/about-us',
+    }
   }
 ];
 
