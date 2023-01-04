@@ -13,6 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import PrincipalFooter from 'components/footer/PrincipalFooter.vue';
+import PrincipalFooter from 'components/common/PrincipalFooter.vue';
 import PrincipalNavigation from 'components/common/PrincipalNavigation.vue';
 </script>
