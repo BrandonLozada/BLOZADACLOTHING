@@ -1,5 +1,5 @@
 <template>
-  <q-header elevated>
+  <q-header reveal elevated>
     <q-toolbar>
       <q-btn
         flat
@@ -186,7 +186,6 @@ const myNavigationMenu: EssentialLinkProps[] = [
   },
   {
     title: 'Guardados',
-    // caption: 'Favoritos y Guardados pueden ser el mismo ya que ya se encuentra Lista de deseos',
     icon: 'book',
     meta: {
       slug: '/my-bookmarks',
@@ -211,16 +210,12 @@ const myNavigationMenu: EssentialLinkProps[] = [
 const especialNavigationMenu: EssentialLinkProps[] = [
   {
     title: 'Atención al cliente',
-    // caption: 'Ayuda: va con Atención a cliente, ' +
-    //   'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal',
     icon: 'contact_support',
     meta: {
       slug: '/contact-support',
     }
   },  {
     title: 'Configuración',
-    // caption: 'Cuenta: Inicio de sesión' +
-    //          'General: Tema, País o región, Traducción, Borrar historial ',
     icon: 'settings',
     meta: {
       slug: '/settings',
@@ -228,10 +223,6 @@ const especialNavigationMenu: EssentialLinkProps[] = [
   },
   {
     title: 'Ayuda',
-    // caption: 'Ayuda: va con Atención a cliente, ' +
-    //   'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal,' +
-    //   'Accesibilidad: Personas con debilidad visual, Daltonismo (Cambiar los colores, etc.)' +
-    //   'Inclusividad: Inclusión a personas, etc. (Buscar e incluir)',
     icon: 'help',
     meta: {
       slug: '/help',
@@ -276,46 +267,6 @@ const myProfileNavigationMenu: EssentialLinkProps[] = [
         }
       }
     ]
-  }
-];
-
-const footer: EssentialLinkProps[] = [
-  {
-    title: 'Atención al cliente',
-    caption: 'Ayuda: va con Atención a cliente, ' +
-             'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal',
-    meta: {
-      slug: '/contact-support',
-    }
-  },
-  {
-    title: 'Configuración',
-    caption: 'Cuenta: Inicio de sesión' +
-             'General: Tema, País o región, Traducción, Borrar historial ',
-    meta: {
-      slug: '/settings',
-    }
-  },
-  {
-    title: 'Ayuda',
-    caption: 'Ayuda: va con Atención a cliente, ' +
-             'Acerca de: Condiciones de uso, privacidad, Datos personales, Publicidad, Legal,' +
-             'Accesibilidad: Personas con debilidad visual, Daltonismo (Cambiar los colores, etc.)' +
-             'Inclusividad: Inclusión a personas, etc. (Buscar e incluir)',
-    meta: {
-      slug: '/help',
-    }
-  },
-  {
-    title: 'Acerca de nosotros',
-    caption: 'Acerca de nosotros: ¿Quienes somos?, ¿Qué hacemos? Emprendurismo -> Misión, Visión, Valores' +
-             'Contacto: Dirección de oficina' +
-             'Patrocinio, publicidad: Se mi proveedor' +
-             'Otra opción: Alguna otra opción',
-    icon: 'business_center',
-    meta: {
-      slug: '/about-us',
-    }
   }
 ];
 

@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh lpR lFr">
+  <q-layout view="lHh lpR ffr">
 
     <PrincipalNavigation/>
 

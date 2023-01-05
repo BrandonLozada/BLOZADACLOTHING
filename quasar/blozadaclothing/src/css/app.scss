@@ -3,10 +3,27 @@
 //Tipografía sitio
 body {
   font-weight: 300;
+  //font-family: "Google Sans", Roboto,Arial, sans-serif;
+  //font-family: "Helvetica", 'Segoe UI', Arial , sans-serif;
 }
 
 a {
   text-decoration: none;
+}
+
+// my-link
+//.my-link:link, .my-link:visited, .my-link:active {
+.my-link {
+  text-decoration:none;
+  //font-size: 25px;
+  font-size: medium;
+  font-weight: 500;
+  //letter-spacing: 0.00714286em;
+  line-height: 2.5rem;
+  hyphens: auto;
+  word-break: break-word;
+  word-wrap: break-word;
+  //color: rgb(26,115,232);
 }
 
 p {
