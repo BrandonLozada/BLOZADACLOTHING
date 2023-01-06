@@ -57,6 +57,8 @@
 
                     </q-form>
 
+               <div>{{formData}}</div>
+
               </div>
             </div>
           </div>

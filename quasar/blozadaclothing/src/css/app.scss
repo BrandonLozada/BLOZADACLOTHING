@@ -11,6 +11,14 @@ a {
   text-decoration: none;
 }
 
+//@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))
+.q-header {
+  //background-color: #0000001a;
+  background-color: $primary;
+  //-webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+}
+
 // my-link
 //.my-link:link, .my-link:visited, .my-link:active {
 .my-link {

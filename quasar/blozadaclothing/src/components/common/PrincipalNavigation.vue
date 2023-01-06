@@ -1,6 +1,6 @@
 <template>
-  <q-header reveal elevated>
-    <q-toolbar>
+  <q-header elevated>
+    <q-toolbar class="q-py-none justify-between">
       <q-btn
         flat
         dense
@@ -11,14 +11,38 @@
       />
 
       <q-toolbar-title>
-        B Lozada Clothing.
+        <q-btn
+          to="/"
+          title="B Lozada Clothing"
+          :ripple="false"
+          class="q-px-none q-pr-sm-sm no-border no-border-radius no-box-shadow no-outline no-shadow no-hovereable"
+        >
+          <img
+            class=""
+            style="max-width: 170px; max-height: 80px;"
+            height="90"
+            width="300"
+            fit="contain"
+            src="/img/logos/spotify_logo.png"
+            alt="B Lozada Clothing."
+          />
+        </q-btn>
       </q-toolbar-title>
 
-      <div>Quasar v{{ $q.version }}</div>
+<!--      <div class="row items-center text-center">-->
 
-<!--      Aqui va el boton del carrito de compras-->
-<!--      También podemos poner el botón de cuenta-->
-<!--      Y el de buscador también-->
+<!--      </div>-->
+
+<!--      <div class="order-last row justify-end ">-->
+        <div class="q-gutter-x-sm row items-center no-wrap">
+          <SearchBar/>
+
+          <AccountButton/>
+
+          <ShopCartButton/>
+        </div>
+<!--      </div>-->
+
 
     </q-toolbar>
   </q-header>
@@ -92,6 +116,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import SearchBar from 'components/common/SearchBar.vue';
+// import NotificationButton from 'components/common/NotificationButton.vue';
+import AccountButton from 'components/common/AccountButton.vue';
+import ShopCartButton from 'components/common/ShopCartButton.vue';
+
+
+
+
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
 import SocialNetworks, { SocialNetworksProps } from 'components/SocialNetwork.vue';
 
