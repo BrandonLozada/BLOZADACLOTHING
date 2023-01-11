@@ -147,17 +147,17 @@ const socialNetworks: SocialNetworksProps[] = [
 
 const authNavigationMenu: EssentialLinkProps[] = [
   {
-    title: 'Inicio',
-    icon: 'home',
-    meta: {
-      slug: '/',
-    }
-  },
-  {
     title: 'Categorias',
     icon: 'category',
     meta: {
       slug: '/categories',
+    }
+  },
+  {
+    title: 'Ofertas',
+    icon: 'mdi-sale',
+    meta: {
+      slug: '/discounts',
     }
   },
   {
@@ -185,18 +185,17 @@ const authNavigationMenu: EssentialLinkProps[] = [
 
 const noAuthNavigationMenu: EssentialLinkProps[] = [
   {
-    title: 'Inicio',
-    caption: 'Un texto debajo solo como ejemplo y práctica',
-    icon: 'home',
+    title: 'Categorias',
+    icon: 'category',
     meta: {
-      slug: '/',
+      slug: '/categories',
     }
   },
   {
-    title: 'Categorias',
-    icon: 'mail',
+    title: 'Ofertas',
+    icon: 'mdi-sale',
     meta: {
-      slug: '/categories',
+      slug: '/discounts',
     }
   },
   {
