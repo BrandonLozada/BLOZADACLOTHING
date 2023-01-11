@@ -83,7 +83,7 @@ const $q = useQuasar()
 const siteContext = useContextStore()
 const router = useRouter()
 const route = useRoute()
-siteContext.current_page = route.path
+siteContext.currentPage = route.path
 
 const {stopAndPrevent} = event
 

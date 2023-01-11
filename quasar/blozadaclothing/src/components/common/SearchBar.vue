@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const sarch = ref('');
+const search = ref('');
 </script>
 
 <style scoped>
