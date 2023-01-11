@@ -32,5 +32,12 @@ export default route(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.VUE_ROUTER_BASE),
   });
 
+  // This will print in console the object Router every time we change the route
+  Router.beforeEach((to, from, next) => {
+    console.log(to)
+    // document.title = `${ process.env.VUE_APP_TITLE} - ${ String(to.name) }`
+    next()
+  });
+
   return Router;
 });
