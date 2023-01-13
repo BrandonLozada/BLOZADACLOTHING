@@ -9,10 +9,12 @@ const routes: RouteRecordRaw[] = [
 
       // This will be show information about firebase or another thing
       { path: 'my-user/:id', component: () => import('pages/UserInformation.vue') },
-      // The next path 'my-profile' will show all the components below (profile, data, addresses, cards, payment methods, etc.)
-      { path: 'my-profile', component: () => import('pages/UserProfile.vue') },
+
       // This will be a resume of whatever
       { path: 'my-resume', component: () => import('pages/UserResume.vue') },
+
+      // The next path 'my-profile' will show all the components below (profile, data, addresses, cards, payment methods, etc.)
+      { path: 'my-profile', component: () => import('pages/UserProfile.vue') },
       { path: 'my-data', component: () => import('pages/UserData.vue') },
       { path: 'my-addresses', component: () => import('pages/UserAddresses.vue') },
       { path: 'my-cards', component: () => import('pages/UserCard.vue') },
