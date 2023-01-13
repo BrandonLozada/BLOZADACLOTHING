@@ -35,7 +35,9 @@ export default route(function (/* { store, ssrContext } */) {
   // This will print in console the object Router every time we change the route
   Router.beforeEach((to, from, next) => {
     console.log(to)
-    // document.title = `${ process.env.VUE_APP_TITLE} - ${ String(to.name) }`
+    // console.log(process.env.VUE_APP_TITLE) // The name does not show correctly
+    // document.title = `${process.env.VUE_APP_TITLE} ${ to.name != undefined ? `- ${String(to.name)}` : '' }`
+    document.title = `B Lozada Clothing ${ to.name != undefined ? `- ${String(to.name)}` : '' }`
     next()
   });
 
