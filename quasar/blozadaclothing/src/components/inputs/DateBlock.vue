@@ -10,7 +10,7 @@
            @update:modelValue="$refs.qDateProxy"
            :hint="help_text"
            :name="label.toLowerCase().replace(' ', '_')"
-           :rules="required ? [val => !!val || `${label} es requerido`, isValidDate] : ''"
+           :rules="required ? [isValidDate, isOldEnough] : ''"
            v-bind="$attrs"
            mask="date"
   >
@@ -63,17 +63,31 @@ const datePattern = /^(\d{4})(\/)(0[1-9]|1[012])\2(0[1-9]|[1-2]\d|3[01])$/
 
 const isValidDate = (val: string) => {
   if (!!val && val !== '') {
+
     const result = val.match(datePattern)
-    if (result) {
-      const monthDays = new Date(parseInt(result[1]), parseInt(result[3]), 0).getDate();
-      if (parseInt(result[4]) > monthDays) {
-        return 'La fecha es inválida';
-      }
-    } else {
+    if (!result) {
       return 'La fecha no tiene formato';
     }
+
+    const monthDays = new Date(parseInt(result[1]), parseInt(result[3]), 0).getDate();
+    if (parseInt(result[4]) > monthDays) {
+      return 'La fecha es inválida';
+    }
+
   } else {
-    return 'La fecha es requerida';
+    return 'Fecha es requerido';
   }
+};
+
+const isOldEnough = (val: string) => {
+  const today = new Date();
+  const birthdate = new Date(val);
+  let age = today.getFullYear() - birthdate.getFullYear();
+  const monthDiff = today.getMonth() - birthdate.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+    age--;
+  }
+  return age >= 18 || 'Debes tener 18 o más años cumplidos';
 };
 </script>
