@@ -29,20 +29,13 @@
         </q-btn>
       </q-toolbar-title>
 
-<!--      <div class="row items-center text-center">-->
-
-<!--      </div>-->
-
-<!--      <div class="order-last row justify-end ">-->
         <div class="q-gutter-x-sm row items-center no-wrap">
-          <SearchBar/>
+<!--          <SearchBar/>-->
 
           <AccountButton/>
 
           <ShopCartButton/>
         </div>
-<!--      </div>-->
-
 
     </q-toolbar>
   </q-header>
@@ -116,13 +109,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import SearchBar from 'components/common/SearchBar.vue';
+// import SearchBar from 'components/common/SearchBar.vue';
 // import NotificationButton from 'components/common/NotificationButton.vue';
 import AccountButton from 'components/common/AccountButton.vue';
 import ShopCartButton from 'components/common/ShopCartButton.vue';
-
-
-
 
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
 import SocialNetworks, { SocialNetworksProps } from 'components/SocialNetwork.vue';

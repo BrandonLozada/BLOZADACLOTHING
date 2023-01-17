@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { ref} from 'vue'
-import { useAuthStore } from 'stores/auth';
+// import { useAuthStore } from 'stores/auth';
 import {useQuasar} from 'quasar'
 import {useRouter} from 'vue-router'
 
@@ -32,7 +32,7 @@ const showPassword = ref(false);
 const emailPattern = /^(?=[a-zA-Z0-9@.%+-]{6,254}$)[a-zA-Z0-9.%+-]{1,64}@(?:[a-zA-Z0-9-]{1,63}\.){1,8}[a-zA-Z]{2,63}$/;
 const passwordPattern = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{10,})/;
 
-const authStore = useAuthStore()
+// const authStore = useAuthStore()
 
 const isValidEmail = (val: string) => {
   if (!!val && val !== '') {
