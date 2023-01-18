@@ -1,13 +1,6 @@
 <template>
   <q-header elevated>
 
-    <AnnouncementBanner
-      message="Hola esta es una prueba de B Lozada Clothing [Estático]"
-      background_color="bg-orange"
-      message_color="text-white"
-      link="https://quasar.dev/"
-    />
-
     <q-toolbar class="q-py-none justify-between">
       <q-btn
         flat
@@ -64,9 +57,17 @@
     </q-toolbar>
 
     <AnnouncementBanner
+      message="Esto es una prueba de la beta B Lozada Clothing y puede tener errores. Si encuentras algún error, por favor repórtalo."
+      short_message="Esto es la Beta deB Lozada Clothing"
+      background_color="bg-orange"
+      message_color="text-white"
+    />
+
+    <AnnouncementBanner
       message="💥¡VENTA!💥 Hasta un 20% de descuento en artículos seleccionados y envío gratis a partir de 999 pesos mxn 😎❤👀 [Animada]"
       background_color="bg-dark"
       message_color="text-white"
+      animated
       link="https://www.youtube.com/"
     />
 
