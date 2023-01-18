@@ -1,5 +1,13 @@
 <template>
   <q-header elevated>
+
+    <AnnouncementBanner
+      message="Hola esta es una prueba de B Lozada Clothing [Estático]"
+      background_color="bg-orange"
+      message_color="text-white"
+      link="https://quasar.dev/"
+    />
+
     <q-toolbar class="q-py-none justify-between">
       <q-btn
         flat
@@ -22,7 +30,6 @@
             style="max-width: 170px; max-height: 80px;"
             height="90"
             width="300"
-            fit="contain"
             src="/img/logos/spotify_logo.png"
             alt="B Lozada Clothing."
           />
@@ -34,11 +41,40 @@
 
           <AccountButton/>
 
-          <ShopCartButton/>
+          <q-btn
+            flat
+            dense
+            round
+            icon="menu"
+            aria-label="Menú"
+            @click="toggleRightDrawer"
+          />
+
+          <q-btn
+            flat
+            dense
+            round
+            icon="mdi-cart"
+            aria-label="Carrito"
+            @click="$emit('update:toggleRightDrawer', $event.target.value)"
+          />
+
         </div>
 
     </q-toolbar>
+
+    <AnnouncementBanner
+      message="💥¡VENTA!💥 Hasta un 20% de descuento en artículos seleccionados y envío gratis a partir de 999 pesos mxn 😎❤👀 [Animada]"
+      background_color="bg-dark"
+      message_color="text-white"
+      link="https://www.youtube.com/"
+    />
+
   </q-header>
+
+  <ShoppingCart
+    v-model="rightDrawerOpen"
+  />
 
   <q-drawer
     v-model="leftDrawerOpen"
@@ -108,12 +144,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import {ref, computed, onUpdated} from 'vue';
 // import SearchBar from 'components/common/SearchBar.vue';
 // import NotificationButton from 'components/common/NotificationButton.vue';
+import AnnouncementBanner from 'components/common/AnnouncementBanner.vue';
 import AccountButton from 'components/common/AccountButton.vue';
-import ShopCartButton from 'components/common/ShopCartButton.vue';
-
+import ShoppingCart from 'components/common/ShoppingCart.vue';
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
 import SocialNetworks, { SocialNetworksProps } from 'components/SocialNetwork.vue';
 
@@ -297,4 +333,16 @@ function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value
   // return leftDrawerOpen.value;
 }
+
+const rightDrawerOpen = ref(false)
+
+function toggleRightDrawer() {
+  rightDrawerOpen.value = !rightDrawerOpen.value
+  return rightDrawerOpen.value;
+}
+
+// const emits = defineEmits<{
+//   ( event: 'toggleRightDrawer', value: boolean): boolean,
+//   ( event: 'showRightDrawer'): boolean,
+// }>();
 </script>
