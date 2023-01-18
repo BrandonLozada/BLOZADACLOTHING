@@ -11,6 +11,7 @@ a {
   text-decoration: none;
 }
 
+// Header navbar traslúcida
 //@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none))
 .q-header {
   //background-color: #0000001a;
@@ -22,15 +23,11 @@ a {
 // my-link
 .my-link {
   text-decoration:none;
-  //font-size: 25px;
   font-size: medium;
   font-weight: 500;
-  //letter-spacing: 0.00714286em;
   line-height: 2.5rem;
   hyphens: auto;
-  word-break: break-word;
-  word-wrap: break-word;
-  //color: rgb(26,115,232);
+  white-space: nowrap;
 }
 
 // my-mesagge

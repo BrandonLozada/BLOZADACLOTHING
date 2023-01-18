@@ -1,24 +1,25 @@
 <template>
-  <q-banner v-if="animated" dense class="q-mx-none"
-            v-bind:class="$q.screen.lt.md ? background_color + ' q-py-xs'  : '' + background_color">
-    <a class="my-link" :href="link">
-      <div class="max-width-content ">
-        <div v-if="animated"
-             v-html="message"
-             class="my-markup-text anim"
-             v-bind:class="message_color"
-        />
-      </div>
-    </a>
-  </q-banner>
-
-  <q-banner v-else dense class="q-ma-none text-center"
+  <q-banner v-if="type === 'normal'" dense class="text-center"
             v-bind:class="$q.screen.lt.md ? background_color + ' q-py-xs'  : '' + background_color">
     <a class="my-link" :href="link" v-bind:class="message_color">
-      <span class="gt-sm">{{ message }} </span>
-      <span v-if="short_message" class="lt-md">
-        {{ short_message }}
-      </span>
+      <span class="gt-sm" v-html="message"/>
+      <span v-if="short_message" class=" lt-md" v-html="short_message"/>
+    </a>
+  </q-banner>
+  <q-banner v-else-if="type === 'beta'" dense class="q-ma-none q-py-none text-center"
+            v-bind:class="background_color">
+    <div v-bind:class="message_color">
+      <span class="gt-sm" v-html="message"/>
+      <span v-if="short_message" class=" lt-md" v-html="short_message"/>
+    </div>
+  </q-banner>
+  <q-banner v-else-if="type === 'animated'" dense class="my-banner"
+            v-bind:class="$q.screen.lt.md ? background_color + ' q-py-xs'  : '' + background_color">
+    <a class="my-link" :href="link">
+      <div v-html="message"
+           class="anim"
+           v-bind:class="message_color"
+      />
     </a>
   </q-banner>
 </template>
@@ -29,45 +30,30 @@ export interface AnnouncementBannerProps {
   short_message?: string;
   message_color?: string;
   background_color?: string;
-  animated?: boolean;
+  type?: string;
   link?: string;
 }
 withDefaults(defineProps<AnnouncementBannerProps>(),{
   message_color: 'text-black',
   background_color: 'bg-yellow',
-  animated: false,
+  type: 'normal',
   link: '#',
 });
 </script>
 
 <style lang="scss" scoped>
-.my-markup-text {
-  width: 100%;
-  text-align: center;
-  //line-height: 1.8rem;
-  white-space: nowrap;
-  margin: 0 1rem;
+.my-banner {
+  overflow: hidden;
+  position: relative;
+  justify-content: center;
 }
-
 .anim {
   display: block;
   padding-left: 100%;
   padding-right: 1rem;
-  //position: relative;
-  //right: -200px;
   width: max-content;
-  animation: move 10s linear infinite;
+  animation: slideMoveLeft 10s linear infinite;
 }
-
-@keyframes move {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 @keyframes slideMoveLeft {
   100% {
     transform: translateX(-100%);

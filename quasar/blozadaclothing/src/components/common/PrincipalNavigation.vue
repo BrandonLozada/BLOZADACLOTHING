@@ -1,6 +1,12 @@
 <template>
   <q-header elevated>
 
+    <AnnouncementBanner
+      v-for="item in betaAnnouncement"
+      :key="item.message"
+      v-bind="item"
+    />
+
     <q-toolbar class="q-py-none justify-between">
       <q-btn
         flat
@@ -30,7 +36,7 @@
       </q-toolbar-title>
 
         <div class="q-gutter-x-sm row items-center no-wrap">
-<!--          <SearchBar/>-->
+          <!-- <SearchBar/> -->
 
           <AccountButton/>
 
@@ -57,18 +63,9 @@
     </q-toolbar>
 
     <AnnouncementBanner
-      message="Esto es una prueba de la beta B Lozada Clothing y puede tener errores. Si encuentras algún error, por favor repórtalo."
-      short_message="Esto es la Beta deB Lozada Clothing"
-      background_color="bg-orange"
-      message_color="text-white"
-    />
-
-    <AnnouncementBanner
-      message="💥¡VENTA!💥 Hasta un 20% de descuento en artículos seleccionados y envío gratis a partir de 999 pesos mxn 😎❤👀 [Animada]"
-      background_color="bg-dark"
-      message_color="text-white"
-      animated
-      link="https://www.youtube.com/"
+      v-for="item in animatedAnnouncement"
+      :key="item.message"
+      v-bind="item"
     />
 
   </q-header>
@@ -148,11 +145,31 @@
 import {ref, computed, onUpdated} from 'vue';
 // import SearchBar from 'components/common/SearchBar.vue';
 // import NotificationButton from 'components/common/NotificationButton.vue';
-import AnnouncementBanner from 'components/common/AnnouncementBanner.vue';
+import AnnouncementBanner, { AnnouncementBannerProps } from 'components/common/AnnouncementBanner.vue';
 import AccountButton from 'components/common/AccountButton.vue';
 import ShoppingCart from 'components/common/ShoppingCart.vue';
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
 import SocialNetworks, { SocialNetworksProps } from 'components/SocialNetwork.vue';
+
+const betaAnnouncement: AnnouncementBannerProps[] = [
+  {
+    message: 'Esto es una prueba de la beta B Lozada Clothing y puede tener errores. Si encuentras algún error, por favor repórtalo.',
+    short_message: 'Esto es la Beta B Lozada Clothing',
+    background_color: 'bg-orange',
+    message_color: 'text-white',
+    type: 'beta'
+  }
+];
+
+const animatedAnnouncement: AnnouncementBannerProps[] = [
+  {
+    message: '💥¡VENTA!💥 Hasta un 20% de descuento en artículos seleccionados y envío gratis a partir de 999 pesos mxn 😎❤👀',
+    background_color: 'bg-dark',
+    message_color: 'text-white',
+    link: 'https://www.youtube.com/',
+    type: 'animated'
+  }
+];
 
 const socialNetworks: SocialNetworksProps[] = [
   {
