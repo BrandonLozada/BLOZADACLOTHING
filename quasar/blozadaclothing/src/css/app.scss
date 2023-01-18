@@ -20,7 +20,6 @@ a {
 }
 
 // my-link
-//.my-link:link, .my-link:visited, .my-link:active {
 .my-link {
   text-decoration:none;
   //font-size: 25px;
@@ -32,6 +31,14 @@ a {
   word-break: break-word;
   word-wrap: break-word;
   //color: rgb(26,115,232);
+}
+
+// my-mesagge
+.my-message {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 75%;
 }
 
 p {
