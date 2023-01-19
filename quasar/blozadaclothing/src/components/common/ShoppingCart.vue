@@ -46,10 +46,12 @@
 
     <q-tabs
       v-model="tab"
-      narrow-indicator
       dense
+      class="bg-grey-4 text-grey-8"
       align="justify"
-      class="bg-grey-5 text-dark"
+      active-color="dark bg-grey-5"
+      indicator-color="dark"
+      narrow-indicator
     >
       <q-tab :ripple="false" no-caps label="Carrito" name="cartTab" />
       <q-tab :ripple="false" no-caps label="Envío" name="shipTab" />
