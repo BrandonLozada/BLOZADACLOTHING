@@ -68,20 +68,12 @@
       <q-tab-panel name="cartTab" class="">
 
         <q-list class="text-weight-regular">
-          <q-item-label class="bg-grey-3 q-py-lg"
-                        header
-          >
-            Hola Brandon
-          </q-item-label>
-
           <EssentialLink
             v-for="item in authNavigationMenu"
             :key="item.title"
             v-bind="item"
           />
         </q-list>
-
-        <div class="q-ma-xs">
 
           <q-scroll-area
             visible
@@ -95,7 +87,6 @@
             </div>
 
           </q-scroll-area>
-        </div>
 
       </q-tab-panel>
 
@@ -106,44 +97,7 @@
       </q-tab-panel>
     </q-tab-panels>
 
-            <div class="absolute-bottom full-width bg-white q-list--bordered text-grey-9 text-weight-regular">
-          <div class="q-px-xl q-pt-md">
-
-            <div class="flex justify-between">
-              <div class="max-width-text"> Subtotal: </div>
-
-              <div class="max-width-text"> 999 MXN </div>
-            </div>
-
-            <div class="flex justify-between">
-              <div class="max-width-text"> Envío: </div>
-
-              <div class="max-width-text"> 99 MXN </div>
-            </div>
-
-            <div class="flex justify-between text-green-8">
-              <div class="max-width-text"> Descuento: </div>
-
-              <div class="max-width-text"> -200.00 MXN </div>
-            </div>
-
-            <div class="flex justify-between text-weight-medium">
-              <div class="max-width-text"> TOTAL: </div>
-
-              <div class="max-width-text"> 898 MXN </div>
-            </div>
-
-            <div class="flex justify-center q-pa-sm">
-              <q-btn
-                class="full-width"
-                color="primary"
-                label="Checar"
-                aria-label="Checar"
-                to=""
-              />
-            </div>
-          </div>
-        </div>
+    <ShoppingCartSummary/>
 
     <div v-if="tab === ''" class="my-message">
       <div class="max-width-text">
@@ -156,7 +110,8 @@
 
 <script setup lang="ts">
 import {ref} from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
+import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
+import ShoppingCartSummary from 'components/common/ShoppingCartSummary.vue';
 
 // export interface ShoppingCartProps {
 //   modelValue: boolean;
@@ -179,7 +134,6 @@ const emits = defineEmits<{
   ( event: 'showRightDrawer'): boolean,
   ( event: 'mostrarRightDrawer'): void,
 }>();
-
 
 const authNavigationMenu: EssentialLinkProps[] = [
   {
