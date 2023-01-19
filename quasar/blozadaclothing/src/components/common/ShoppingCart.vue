@@ -67,25 +67,23 @@
     >
       <q-tab-panel name="cartTab" class="">
 
-        <q-list class="text-weight-regular">
-          <EssentialLink
-            v-for="item in authNavigationMenu"
-            :key="item.title"
-            v-bind="item"
-          />
-        </q-list>
-
-          <q-scroll-area
+        <q-scroll-area
             visible
-            class="my-card"
-            style="height: 300px; max-width: 300px;"
+            class=""
+            style="height: 300px;"
           >
-            <div v-for="n in 10" :key="n" class="q-py-xs">
-              Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </div>
-
+            <q-list class="text-weight-regular">
+              <EssentialLink
+                v-for="item in authNavigationMenu"
+                :key="item.title"
+                v-bind="item"
+              />
+              <EssentialLink
+                v-for="item in authNavigationMenu"
+                :key="item.title"
+                v-bind="item"
+              />
+            </q-list>
           </q-scroll-area>
 
       </q-tab-panel>
@@ -175,4 +173,11 @@ const authNavigationMenu: EssentialLinkProps[] = [
 </script>
 
 <style lang="scss" scoped>
+.q-tab-panel {
+  padding: 0;
+}
+
+.q-list {
+  padding-right: 10px;
+}
 </style>
