@@ -109,7 +109,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
-import ShoppingCartSummary from 'components/common/ShoppingCartSummary.vue';
+import ShoppingCartSummary from 'components/common/CartSummary.vue';
 
 // export interface ShoppingCartProps {
 //   modelValue: boolean;
@@ -173,11 +173,11 @@ const authNavigationMenu: EssentialLinkProps[] = [
 </script>
 
 <style lang="scss" scoped>
-.q-tab-panel {
-  padding: 0;
-}
+  .q-tab-panel {
+    padding: 0;
+  }
 
-.q-list {
-  padding-right: 10px;
-}
+  .q-list {
+    padding-right: 10px;
+  }
 </style>

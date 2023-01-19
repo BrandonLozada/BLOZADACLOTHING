@@ -1,5 +1,10 @@
 <template>
   <div class="absolute-bottom full-width bg-white q-list--bordered text-grey-9 text-weight-regular">
+
+    <CouponCode/>
+
+    <q-separator/>
+
     <div class="q-pa-lg">
 
       <div class="flex justify-between">
@@ -28,6 +33,7 @@
 
       <div class="flex justify-center q-pt-md">
         <q-btn
+          no-caps
           class="full-width"
           color="primary"
           label="Checar"
@@ -40,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+import CouponCode from 'components/common/CouponCode.vue';
 </script>
 
 <style lang="scss" scoped>

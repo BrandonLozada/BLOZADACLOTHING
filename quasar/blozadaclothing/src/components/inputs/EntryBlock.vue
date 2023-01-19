@@ -68,6 +68,21 @@
            :rules="required ? [val => !!val || `${label} es requerido`] : ''"
            v-bind="$attrs"
   />
+  <q-input v-else-if="field_type === 'coupon'"
+           dense
+           outlined
+           color="dark"
+           :label="label"
+           :model-value="modelValue"
+           @input="$emit('update:modelValue', $event.target.value)"
+           type="tel"
+           unmasked-value
+           mask="XXXXXX"
+           :hint="help_text"
+           :name="label.toLowerCase().replace(' ', '_')"
+           :rules="[val => !!val && val.length === 6 || `${label.replace(' (Opcional)', '')} debe contener 6 dígitos`]"
+           v-bind="$attrs"
+  />
   <!-- Entry Block -->
   <!--"text" | "password" | "textarea" | "email" | "search" | "tel" | "file" | "number" | "url" | "time" | "date" | ...-->
 </template>
