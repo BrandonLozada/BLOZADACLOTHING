@@ -14,8 +14,10 @@
         round
         icon="menu"
         aria-label="Menú"
-        @click="toggleLeftDrawer"
-      />
+        @click="leftDrawerOpen = !leftDrawerOpen"
+      >
+        <q-tooltip :delay="3000" anchor="bottom middle" self="top left">Menú</q-tooltip>
+      </q-btn>
 
       <q-toolbar-title>
         <q-btn
@@ -50,6 +52,7 @@
             aria-label="Checkout"
             @click="toggleRightDrawer"
           >
+            <q-tooltip :delay="1000" anchor="bottom middle" self="top right">Carrito</q-tooltip>
             <q-badge color="red" floating>4</q-badge>
           </q-btn>
 
@@ -75,13 +78,13 @@
 </template>
 
 <script setup lang="ts">
-import {ref, computed, onUpdated} from 'vue';
+import {ref} from 'vue';
 // import SearchBar from 'components/common/SearchBar.vue';
 import NotificationButton from 'components/common/NotificationButton.vue';
 import AnnouncementBanner, { AnnouncementBannerProps } from 'components/banners/AnnouncementBanner.vue';
 import AccountButton from 'components/common/AccountButton.vue';
 import ShoppingCart from 'components/shopping cart/ShoppingCart.vue';
-import NavigationMenu from "components/common/NavigationMenu.vue";
+import NavigationMenu from 'components/common/NavigationMenu.vue';
 
 const betaAnnouncement: AnnouncementBannerProps[] = [
   {
@@ -104,21 +107,10 @@ const animatedAnnouncement: AnnouncementBannerProps[] = [
 ];
 
 const leftDrawerOpen = ref(false)
-
-function toggleLeftDrawer(): boolean {
-  leftDrawerOpen.value = !leftDrawerOpen.value
-  return leftDrawerOpen.value;
-}
-
 const rightDrawerOpen = ref(false)
 
 function toggleRightDrawer() {
   rightDrawerOpen.value = !rightDrawerOpen.value
   return rightDrawerOpen.value;
 }
-
-// const emits = defineEmits<{
-//   ( event: 'toggleRightDrawer', value: boolean): boolean,
-//   ( event: 'showRightDrawer'): boolean,
-// }>();
 </script>

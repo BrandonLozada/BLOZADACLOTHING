@@ -17,6 +17,12 @@
       @click="$emit('update:modelValue', !modelValue)"
     />
 
+<!-- TODO: With the :breakpoint and :width properties (view the documentation about these)
+           also the inline style(calculate the screen otherwise use the @media queries)
+           make the q-drawer responsive when the windows height size is under mid screen.
+           An other alternativa solution it is view the project demo in my laptop.
+           Then, after that, replicate it in the ShoppinCart component.-->
+
     <q-list class="text-weight-regular">
       <q-item-label class="bg-grey-3 q-py-lg"
         header

@@ -7,7 +7,7 @@
     aria-label="Notificaciones"
   >
     <q-badge color="red" floating>2</q-badge>
-  <q-tooltip :delay="3000">Mi cuenta</q-tooltip>
+  <q-tooltip :delay="3000">Mis notificaciones</q-tooltip>
 
     <q-menu anchor="top middle" self="bottom middle" class="z-top"
             transition-show="jump-down"
