@@ -3,9 +3,10 @@
     flat
     dense
     round
-    icon="person"
-    aria-label="Cuenta"
+    icon="notifications"
+    aria-label="Notificaciones"
   >
+    <q-badge color="red" floating>2</q-badge>
   <q-tooltip :delay="3000">Mi cuenta</q-tooltip>
 
     <q-menu anchor="top middle" self="bottom middle" class="z-top"

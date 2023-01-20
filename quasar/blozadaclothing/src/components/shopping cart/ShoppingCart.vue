@@ -17,26 +17,16 @@
         aria-label="Menú"
         @click="$emit('update:modelValue', !modelValue)"
       />
-      <q-btn
-        flat
-        dense
-        round
-        class="q-ma-md z-max text-grey-9"
-        icon="arrow_back_ios"
-        aria-label="Menú"
-        @click="$emit('update:rightDrawerOpen', $event.target.value)"
-      />
-      <q-btn
-        flat
-        dense
-        round
-        class="q-ma-md z-max text-grey-9"
-        icon="keyboard_return"
-        aria-label="Menú"
-        @click="$emit('update:rightDrawerOpen', $event.target.value)"
-      />
     </div>
 
+    <q-item-label class="bg-grey-3 q-py-lg text-right text-weight-regular"
+        header
+      >
+        Hola Brandon
+    </q-item-label>
+
+<!-- TODO: Add the :router-tab property to the q-tab component, this will help on mobile version
+           when after pressing the back button for redirect to the previous route. -->
     <q-tabs
       v-model="tab"
       dense
@@ -108,8 +98,8 @@ export interface ShoppingCartProps {
   modelValue: boolean;
   // rightDrawerOpen: boolean;
 }
-const props = withDefaults(defineProps<ShoppingCartProps>(), {
-  // modelValue: false,
+withDefaults(defineProps<ShoppingCartProps>(), {
+  modelValue: false,
   // rightDrawerOpen: false,
 });
 
