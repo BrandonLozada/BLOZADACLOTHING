@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import CouponCode from 'components/common/CouponCode.vue';
+import CouponCode from 'components/shopping cart/CouponCode.vue';
 </script>
 
 <style lang="scss" scoped>

@@ -147,7 +147,7 @@ import {ref, computed, onUpdated} from 'vue';
 // import NotificationButton from 'components/common/NotificationButton.vue';
 import AnnouncementBanner, { AnnouncementBannerProps } from 'components/banners/AnnouncementBanner.vue';
 import AccountButton from 'components/common/AccountButton.vue';
-import ShoppingCart from 'components/common/ShoppingCart.vue';
+import ShoppingCart from 'components/shopping cart/ShoppingCart.vue';
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
 import SocialNetworks, { SocialNetworksProps } from 'components/SocialNetwork.vue';
 

@@ -109,7 +109,7 @@
 <script setup lang="ts">
 import {ref} from 'vue';
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
-import ShoppingCartSummary from 'components/common/CartSummary.vue';
+import ShoppingCartSummary from 'components/shopping cart/CartSummary.vue';
 
 // export interface ShoppingCartProps {
 //   modelValue: boolean;
