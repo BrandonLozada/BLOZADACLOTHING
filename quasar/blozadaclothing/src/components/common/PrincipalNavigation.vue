@@ -44,18 +44,18 @@
             flat
             dense
             round
-            icon="menu"
-            aria-label="Menú"
-            @click="toggleRightDrawer"
+            icon="mdi-shopping"
+            aria-label="Carrito"
+            @click="$emit('update:toggleRightDrawer', $event.target.value)"
           />
 
           <q-btn
             flat
             dense
             round
-            icon="mdi-cart"
-            aria-label="Carrito"
-            @click="$emit('update:toggleRightDrawer', $event.target.value)"
+            icon="mdi-shopping-outline"
+            aria-label="Menú"
+            @click="toggleRightDrawer"
           />
 
         </div>
@@ -145,7 +145,7 @@
 import {ref, computed, onUpdated} from 'vue';
 // import SearchBar from 'components/common/SearchBar.vue';
 // import NotificationButton from 'components/common/NotificationButton.vue';
-import AnnouncementBanner, { AnnouncementBannerProps } from 'components/common/AnnouncementBanner.vue';
+import AnnouncementBanner, { AnnouncementBannerProps } from 'components/banners/AnnouncementBanner.vue';
 import AccountButton from 'components/common/AccountButton.vue';
 import ShoppingCart from 'components/common/ShoppingCart.vue';
 import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';

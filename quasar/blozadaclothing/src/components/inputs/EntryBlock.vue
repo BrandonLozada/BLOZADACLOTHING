@@ -68,6 +68,8 @@
            :rules="required ? [val => !!val || `${label} es requerido`] : ''"
            v-bind="$attrs"
   />
+<!-- TODO: Fix the clearable button, it return error (false) the :rules property because the input is not 6 digits
+           An alternative could be adding the :error property, https://quasar.dev/vue-components/input#example--slot-for-error-message -->
   <q-input v-else-if="field_type === 'coupon'"
            dense
            outlined
@@ -75,16 +77,23 @@
            :label="label"
            :model-value="modelValue"
            @input="$emit('update:modelValue', $event.target.value)"
-           type="tel"
+           type="text"
            unmasked-value
            mask="XXXXXX"
            :hint="help_text"
            :name="label.toLowerCase().replace(' ', '_')"
            :rules="[val => !!val && val.length === 6 || `${label.replace(' (Opcional)', '')} debe contener 6 dígitos`]"
            v-bind="$attrs"
-  />
+  >
+<!--    <template v-if="modelValue" v-slot:append>-->
+<!--      <q-icon-->
+<!--        name="close"-->
+<!--        class="cursor-pointer"-->
+<!--        @click.stop.prevent="$emit('update:modelValue', $event.target.value = '')"-->
+<!--      />-->
+<!--    </template>-->
+  </q-input>
   <!-- Entry Block -->
-  <!--"text" | "password" | "textarea" | "email" | "search" | "tel" | "file" | "number" | "url" | "time" | "date" | ...-->
 </template>
 
 <script setup lang="ts">
